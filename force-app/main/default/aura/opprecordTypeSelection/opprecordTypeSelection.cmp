@@ -1,0 +1,4 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride">
+    
+    <c:recordtypeselection  />
+</aura:component>

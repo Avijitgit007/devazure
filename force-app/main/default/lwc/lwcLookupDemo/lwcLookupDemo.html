@@ -1,0 +1,19 @@
+<template>  
+    <div class="slds-box">  
+      <c-lwc-lookup lookup-label="Contact" 
+                    place-holder="Select SLL..."  
+                    new-button-name="New User" 
+                    object-api-name="User" 
+                    icon-name="standard:user" 
+                    recordid="Id" 
+                    field-name="Name" 
+                    additionalfield-name=""  
+                    additional-filter-criteria="IsActive=true"
+                    onrecordselection={onAccountSelection}>
+      </c-lwc-lookup>  
+    </div>  
+    <div class="slds-box">  
+      Selected Account Name : {accountName}  
+      Selected Account Id  : {accountRecordId}  
+    </div>  
+  </template>

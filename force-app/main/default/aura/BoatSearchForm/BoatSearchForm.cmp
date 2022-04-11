@@ -1,0 +1,30 @@
+<aura:component controller="BoatSearchFormController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="showNewButton" type="Boolean" default="false"/>
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="selectedValue" type="String" default=""/>
+     
+    <aura:registerEvent name="formsubmit" type="c:FormSubmit"/>
+    <div>
+        
+        
+        <lightning:layout horizontalAlign="center">
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <lightning:select aura:id="boatTypeSelector" value="{!v.selectedValue}">
+                    <aura:iteration items="{!v.options}" var="item">
+                        <option text="{!item.label}" value="{!item.value}" selected="{!item.selected}"/>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small">
+                <lightning:button variant="brand" label="Search" onclick="{! c.onFormSubmit }" />
+            </lightning:layoutItem>
+            <aura:if isTrue="{!v.showNewButton}">
+                <lightning:layoutItem flexibility="auto" padding="around-small" >
+                    <lightning:button variant="neutral" label="New" onclick="{! c.openNewBoatType }" />
+                </lightning:layoutItem>
+            </aura:if>
+            
+        </lightning:layout>
+    </div>
+</aura:component>

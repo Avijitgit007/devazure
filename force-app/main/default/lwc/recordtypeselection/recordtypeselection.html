@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="HelloConditionalRendering" icon-name="custom:custom14">
+        <template if:true={isNew}>
+            include New Opp related conponent
+        </template>
+        <template if:true={isExisting}>
+            include Existing Opp related conponent
+        </template>
+        <template if:true={isFramework}>
+            include Framework Opp related conponent
+        </template>
+    </lightning-card>
+</template>

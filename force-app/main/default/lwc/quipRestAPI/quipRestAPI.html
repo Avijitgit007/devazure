@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>
+            Make Callout From Lightning Web Components (LWC)
+        </h3>
+        <div slot="footer">
+                
+        </div>
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-button label="Get The Joke" onclick={getTheJoke}></lightning-button>
+        </div>
+
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-textarea readonly value={receivedMessage} rows="7" style="height:150px;"></lightning-textarea>
+        </div>   
+    </lightning-card>
+</template>

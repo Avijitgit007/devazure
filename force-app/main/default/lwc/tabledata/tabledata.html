@@ -1,0 +1,25 @@
+<template>
+    <table class="slds-table slds-table--bordered">
+        <thead>
+            <tr>
+                <template for:each={fieldtable} for:item="item">
+                    <th key={item.name}> {item.label}</th>
+                </template>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={recordtable} for:item="data">
+                <tr key={data.Index}>
+                    <template for:each={fieldtable} for:item="field">
+                        <td key={field.name}>
+                            <c-table-row field={field} record={data} onchangeprodval={handleChange}></c-table-row>
+                        </td>
+                    </template>
+                    <td key={data.Index}>
+                        <lightning-button variant="Neutral" label="Remove" onclick={handleDel} data-key={data.Index}></lightning-button>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>

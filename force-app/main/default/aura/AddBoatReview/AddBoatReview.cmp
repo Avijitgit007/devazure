@@ -1,0 +1,41 @@
+<aura:component >
+    <aura:attribute name="boat" type="Boat__c"/>
+    <aura:attribute name="boatReview" type="BoatReview__c" access="private"/>
+    <aura:attribute name="boatSimpleReview" type="BoatReview__c"/>
+    <aura:attribute name="recordError" type="String" access="private"/>
+    <aura:attribute name="targetFields" type="List" default="['Id', 'Name', 'Comment__c', 'Boat__c']"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="BoatReviewAdded" type="c:BoatReviewAdded"/>
+    <force:recordData aura:id="service" 
+                      layoutType="FULL"
+                      targetRecord="{!v.boatSimpleReview}"
+                      targetFields="{!v.boatReview}"
+                      targetError="{!v.recordError}"
+                      recordUpdated="{!c.onRecordUpdated}" />
+    <div class="slds-form slds-form_stacked">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="input-id-01">Title</label>
+            <div class="slds-form-element__control">
+                <lightning:input name="Title" value="{!v.boatReview.Name}" />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="input-id-02">Description</label>
+            <div class="slds-form-element__control">
+                <lightning:inputRichText disabledCategories="FORMAT_FONT" value="{!v.boatReview.Comment__c}" />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="input-id-02">Rating</label>
+            <div class="slds-form-element__control">
+                <c:FiveStarRating aura:id="FiveStarRating" readOnly="false" value="{!v.boatReview.Rating__c}"/>
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="input-id-02">Rating</label>
+            <div class="slds-form-element__control" style="text-align:center;">
+                <lightning:button iconName="utility:save" label="Submit" onclick="{!c.onSave}"/>
+            </div>
+        </div>
+    </div>
+</aura:component>

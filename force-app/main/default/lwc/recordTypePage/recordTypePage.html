@@ -1,0 +1,24 @@
+<template>
+    <lightning-card>
+        <h2 slot="title" class="slds-modal__title slds-hyphenate" style="text-align: center;">
+            New Account
+        </h2>
+        <hr>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" >
+                
+                <template if:false={errorMsg}>
+                    <lightning-radio-group name="radioGroup" label="Select Record Type" options={options} value={rtNamevalue}
+                        type="radio" style="padding-left: 40%;" onchange={handleChange}></lightning-radio-group>
+                </template>
+            </div>
+    </lightning-card>
+
+    <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <lightning-button-group>
+            <lightning-button label="Cancel" onclick={cancel} variant="neutral">
+            </lightning-button>
+            <lightning-button label="Next" onclick={recordselection} variant="brand">
+            </lightning-button>
+        </lightning-button-group>
+    </div>
+</template>

@@ -1,0 +1,23 @@
+<template>
+    <template if:true={isPICKLIST}>
+        <lightning-combobox name={field.name} value={selectedVal} options={options} onchange={handleChange} variant="label-hidden">
+        </lightning-combobox>
+    </template>
+
+    <template if:true={isSTRING}>
+        <lightning-input label={field.label} value={selectedVal} variant="label-hidden" onchange={handleChange}>
+        </lightning-input>
+    </template>
+
+    <template if:true={isNUMBER}>
+        <lightning-input type="number" label={field.label} value={selectedVal} variant="label-hidden"
+            onchange={handleChange} min="0">
+        </lightning-input>
+    </template>
+
+    <!--<template if:true={isREFERENCE}>
+        <c-auto-complete onautocomplete={handleChange}></c-auto-complete>
+        <lightning-input label={field.label} value={selectedVal} variant="label-hidden" onchange={handleChange}>
+        </lightning-input> 
+    </template>-->
+</template>

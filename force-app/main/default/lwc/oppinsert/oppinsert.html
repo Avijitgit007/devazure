@@ -1,0 +1,63 @@
+<template>
+    <lightning-card title="HelloWorld" icon-name="custom:custom14">
+       <!-- <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_1-of-2">      
+                <lightning-input label="Name" value={oppName} onchange={handleopp}></lightning-input>
+            </div><br/>
+            <div class="slds-col slds-size_1-of-2">  
+                <lightning-input label="Amount" value={oppAmtt}></lightning-input>
+            </div> 
+        </div>
+        <br/>-->
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <span><lightning-input label="Name" value={oppName} onchange={handleopp}></lightning-input></span>
+                </div>
+                <!--<div class="slds-col">
+                    <span> <lightning-input label="Amount" value={oppAmtt}></lightning-input></span>
+                </div>-->
+            </div>
+            <br/>
+        <lightning-button variant="brand" label="Search" title="Search" onclick={searchContact} class="slds-m-left_x-small"></lightning-button>
+        <br/>
+        <br/>
+        <lightning-layout-item class="slds-m-bottom_small">  
+            <template if:true={contacts}>                        
+                <!--<template for:each={contacts} for:item="contact">                        
+                    <p key={contact.Id}>                               
+                        {contact.Name}
+                    </p>
+                </template>-->
+                <lightning-datatable 
+                    key-field="id"
+                    data={contacts}    
+                    onrowaction={addContact}               
+                    hide-checkbox-column="true"
+                    columns={columns}>
+                </lightning-datatable>
+            </template>
+            <template if:true={error}>
+                {error}>
+            </template>
+        </lightning-layout-item>   
+        <br/>  
+        <div class="slds-text-body_regular">Selected Contacts</div>
+        <br/>
+        <lightning-layout-item class="slds-m-bottom_small">  
+                <template if:true={selectedcontacts}>                        
+                   
+                    <lightning-datatable 
+                        key-field="id"
+                        data={selectedcontacts}    
+                        onrowaction={removeContact}
+                        hide-checkbox-column="true"
+                        columns={Selectedcolumns}>
+                    </lightning-datatable>
+                </template>
+                
+            </lightning-layout-item>   
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={sendContact}>AddContact</button>
+            </footer>
+    </lightning-card>   
+</template>

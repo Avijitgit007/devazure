@@ -1,0 +1,9 @@
+<template>
+        <template if:true={recordPage}>
+                <c-record-type-page onclosemodal={handleclosemodal} onrecordtypeselection={handlerecordtypeselection}>
+                </c-record-type-page>
+        </template>      
+        <template if:true={contactPage}>
+                <c-parent-record></c-parent-record>
+        </template>  
+</template>

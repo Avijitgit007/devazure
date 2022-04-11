@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__HomePage,lightning__RecordPage">
+            <property name="title" type="String" default="" label="Title"/>
+            <property name="icon" type="String" default="" label="Stndard Icon Name"/>
+            <property name="related" type="Boolean" default="false" label="Related"/>
+            <property name="relatedField" type="String" default="" label="Related Field(API Name in Child Object)"/>
+            <property name="objName" type="String" datasource="apex://ObjectList" label="Object Name(API Name)"/>
+            <property name="fldShn" type="String" default="" label="Fields To be shown"/>
+            <property name="editable" type="Boolean" default="false" label="Enable Inline Edit"/>
+            <property name="whcon" type="String" default="" label="Additional Filters"/>
+            <property name="sortBy" type="String" default="" label="Sort by Field"/>
+            <property name="sortDirection" type="String" default="" label="Sort Order(desc or asc)"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
